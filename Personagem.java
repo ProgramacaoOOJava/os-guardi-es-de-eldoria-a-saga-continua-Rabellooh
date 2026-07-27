@@ -1,58 +1,36 @@
-package eldoria;
+public abstract class Personagem {
+    private String nome;
+    private String classe;
+    private int nivel;
+    private int pontosDeVida;
+    private double poderBase;
 
-import java.util.Objects;
-
-/**
- * Classe base para representar personagens do reino de Eldoria.
- * Aplica conceitos de encapsulamento, herança e polimorfismo.
- */
-public class abstract Personagem {
-    // Atributos privados (encapsulamento)
-
-
-    // * Construtor que inicializa todos os atributos do personagem.
-
-    // Getters
-
-    // Setters com validações
-
-    // * Criar métodos que define os pontos de vida do personagem.
-
-
-    /**
-     * Criar método que define a habilidade do personagem.
-     * Deve ser sobrescrito pelas subclasses para implementar comportamentos específicos.
-     */
-
-
-
-    /**
-     * Sobrescrita do método toString() para exibir informações do personagem.
-     * @return String formatada com todos os atributos do personagem
-     */
-    @Override
-    public String toString() {
-
+    public Personagem(
+            String nome,
+            String classe,
+            int nivel,
+            int pontosDeVida,
+            double poderBase
+    ) {
+        this.nome = nome;
+        this.classe = classe;
+        this.nivel = nivel;
+        this.pontosDeVida = pontosDeVida;
+        this.poderBase = poderBase;
     }
 
-    /**
-     * Sobrescrita do método equals() para comparar personagens.
-     * Dois personagens são considerados iguais se tiverem o mesmo nome e classe.
-     * @param obj Objeto a ser comparado
-     * @return true se os personagens forem iguais, false caso contrário
-     */
-    @Override
-    public boolean equals(Object obj) {
+    // Cada tipo de personagem implementará sua própria habilidade.
+    public abstract void usarHabilidade();
 
+    public void exibirStatus() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Classe: " + classe);
+        System.out.println("Nível: " + nivel);
+        System.out.println("Pontos de Vida: " + pontosDeVida);
+        System.out.println("Poder Base: " + poderBase);
     }
 
-    /**
-     * Sobrescrita do método hashCode() para ser consistente com equals().
-     * @return Código hash baseado no nome e classe
-     */
-    @Override
-    public int hashCode() {
-
+    public String getNome() {
+        return nome;
     }
 }
-
